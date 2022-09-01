@@ -5,6 +5,16 @@
 /* ==========================================================================
    2. GENERAL
    ========================================================================== */
+#headerPopup{
+  width:75%;
+  margin:0 auto;
+}
+
+#headerPopup iframe{
+  width:100%;
+  margin:0 auto;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   color: #546E7A;
