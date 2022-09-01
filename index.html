@@ -21,18 +21,15 @@
     <link rel="stylesheet" href="static/css/main.css">
     <link rel="stylesheet" href="static/css/responsive.css">
     <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
-<script>
-$(document).ready(function() {
-	$('.video-popup').magnificPopup({
-		disableOn: 700,
-		type: 'iframe',
-		mainClass: 'mfp-fade',
-		removalDelay: 160,
-		preloader: false,
-		fixedContentPos: false
+    <script>
+        $(".video-popup").click(function () {
+    var $this = $(this);
+    var $iframe = $("<iframe>").attr("src", $this.data("link")).css({"width": 400, "height": 300});
+    var $title = $("<h1>").text($this.data("title"));
+    $("#video-view").html($title).append($iframe);
+    $iframe.wrap("<div class='class-video'>");
 	});
-});
-</script>
+    </script>
 </head>
   
   <body>
@@ -268,11 +265,15 @@ $(document).ready(function() {
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12">
+		<a class="popup video-popup" href="#!" data-link="http://www.youtube.com/embed/Q0HFBy2BtfA?enablejsapi=1" data-title=""><i class="lni-film-play"></a>
+		<div id="video-view"></div> 
+			<!---
               <div class="video-promo-content text-center">
                 <a href="https://www.youtube.com/watch?v=1fTxJZVUh_U&t=15s" id="headerVideoLink" class="video-popup"><i class="lni-film-play"></i></a>
                 <h2 class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">Our Introductory Video</h2>
                 <p class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">Learn more about us, its only 30mins</p>                
               </div>
+--->
           </div>
         </div>
       </div>
