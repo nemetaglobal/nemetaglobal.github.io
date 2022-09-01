@@ -257,14 +257,25 @@
         <div class="row">
           <div class="col-md-12 col-sm-12">
               <div class="video-promo-content text-center">
-                <a href="https://www.youtube.com/embed/1fTxJZVUh_U"  class="video-popup"><i class="lni-film-play"></i></a>
+                <a href="#headerPopup" id="headerVideoLink" target="_blank" class="video-popup"><i class="lni-film-play"></i></a>
                 <h2 class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">Our Introductory Video</h2>
-                <p class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">Learn more about us, its only 4mins</p>
+                <p class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">Learn more about us, its only 30mins</p>
+                <div id="headerPopup" class="mfp-hide embed-responsive embed-responsive-21by9">
+                  <iframe class="embed-responsive-item" width="854" height="480" src="http://www.youtube.com/embed/1fTxJZVUh_U" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
               </div>
           </div>
         </div>
       </div>
     </section>
+    <script>
+    $(document).ready(function() {
+      $('#headerVideoLink').magnificPopup({
+        type:'inline',
+        midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+      });         
+    });
+    </script>
     <!-- End Video Promo Section -->
 
     <!-- NODE Section -->
