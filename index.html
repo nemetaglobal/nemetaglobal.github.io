@@ -21,15 +21,7 @@
     <link rel="stylesheet" href="static/css/main.css">
     <link rel="stylesheet" href="static/css/responsive.css">
     <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
-    <script>
-        $(".video-popup").click(function () {
-    var $this = $(this);
-    var $iframe = $("<iframe>").attr("src", $this.data("link")).css({"width": 400, "height": 300});
-    var $title = $("<h1>").text($this.data("title"));
-    $("#video-view").html($title).append($iframe);
-    $iframe.wrap("<div class='class-video'>");
-	});
-    </script>
+   
 </head>
   
   <body>
