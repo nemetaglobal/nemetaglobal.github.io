@@ -383,7 +383,8 @@
                 <br/>
                 <p><strong>※How to calculate node pool reward</strong></p>
                 <br/>
-                <center><p> Rm=\frac{MNx}{Nx}*0.27Pt <br/> or Rm = \frac{MNx*0.27pt}{Nx} </p></center>
+                <center><p> Rm=(MNx/Nx) *0.27Pt  </p></center>
+                <center><p>or Rm = \frac{MNx*0.27pt}{Nx}</p></center>
                 <li>Rm: My node pool reward</li>
                 <li>Nx: Total number of x-nodes in super nodes</li>
                 <li>MNx: Total number of x-nodes in my node pool</li>
@@ -430,21 +431,32 @@
                   <br/>
                   <p>•Inversion</p>
                   <p>The image is inversed to reduce memory usage and shorten processing time.</p>
+                  <br/>
                   <img src="static/img/wb v2img/table2.png" class="rounded img-fluid"style="display: block; margin: 0 auto;">
                  <center><p> Table 2. (A) Original Image (B) Gray Scale Conversion (C) Image Inversion </p></center>
                   <br/>
                   <h6>8.3 SWA (Shifted Waveform Analysis) Algorithm</h6>
                   <p>In order to extract clear vein patterns from the captured image, SWA (Shifted Waveform Analysis) algorithm was developed and applied. SWA algorithm is a method of using the phase difference of certain X axis and Y axis. The original signal <img src="static/img/wb v2img/Xn.gif" class="rounded img-fluid"> is shifted by d to get <img src="static/img/wb v2img/Xdn.gif" class="rounded img-fluid"> . δn is obtained by calculating the difference between <img src="static/img/wb v2img/Xn.gif" class="rounded img-fluid"> and <img src="static/img/wb v2img/Xdn.gif" class="rounded img-fluid">  ( <img src="static/img/wb v2img/Sn.gif" class="rounded img-fluid">). </p>
                   <br/>
-                  <table class="table">
-                    <thead><tr align="center"><th scope="col">δn</td><th scope="col">Meaning</td></tr></thead>
-                    <tbody>
-                    <tr align="right"><td>0</td> <td>Intersection of <img src="static/img/wb v2img/Xn.gif" class="rounded img-fluid"> and <img src="static/img/wb v2img/Xdn.gif" class="rounded img-fluid"> </td></tr>
-                    <tr align="right"><td>+</td> <td>The pixel of the applied location is bright</td></tr>
-                    <tr align="right"><td>-</td> <td>/td>The pixel of the applied location is dark</tr>
-           
-  
-                  </tbody></table>
+                  <table>
+                    <tr>
+                        <th scope="col">δn</th>                    
+                        <th scope="col" colspan="4">Meaning</th>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td colspan="4">Intersection of <img src="static/img/wb v2img/Xn.gif" class="rounded img-fluid"> and <img src="static/img/wb v2img/Xdn.gif" class="rounded img-fluid"</td>
+                    </tr>
+                    <tr>
+                        <td>+</td>
+                        <td colspan="4">he pixel of the applied location is bright</td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td colspan="4">The pixel of the applied location is dark</td>
+                    </tr>
+
+                  </table>
                   <center><p> Table 3. Meaning of the value δn </p></center> 
                   <br/>
 
@@ -463,7 +475,7 @@
                   <center><p> Figure 3. Fiducial point for the detection of finger joints </p></center>
                   <br/>
                   <img src="static/img/wb v2img/figure4.png" class="rounded img-fluid"style="display: block; margin: 0 auto;">
-                  <center><p>(A)                           (B)</p></center>
+                  <center><p>(A) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(B)</p></center>
                   <center><p> Figure 4. Directions in which SWA algorithm applies </p></center>
                   <br/>
                 
@@ -475,7 +487,7 @@
                   <h6>8.5 Difference Between the Original and SWA</h6>
                   <p>To obtain the values required for the next process, calculation of the difference between the original and the SWA is performed, as many times as in 4.3.</p>
                   <br/>
-                  <img src="static/img/wb v2img/figure 5.png" class="rounded img-fluid">
+                  <img src="static/img/wb v2img/figure 5.png" class="rounded img-fluid"style="display: block; margin: 0 auto;">
                   <center><p>Figure 5. Feature of Peak Point shown on the difference of two signals </p></center>
                   <br/>
 
@@ -534,7 +546,7 @@
           </div>
         </div>
 
-        <h6><strong>     Finger Vein D.Volt Wallet</strong></h6>
+        <h6><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Finger Vein D.Volt Wallet</strong></h6>
         <div class="row">
             <div class="col">
               <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
