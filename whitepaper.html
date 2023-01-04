@@ -213,7 +213,8 @@
                 <br/>
                 <h6>4.3 How to Sign a Transaction</h6>
                 <p>The user can recover the private key with their finger vein at the time he needs to sign a transaction. The user puts his finger on the finger vein reader (X-Scanner). The user’s finger vein is compared against the stored biokey. If both are identical, then it instantly generates the private key to sign a transaction. The private key disappears right after signing a transaction. Private keys are not stored anywhere. Users use their finger vein instead of private keys when signing transactions. Users do not need to use PIN number or fingerprints.</p>
-                <img src="static/img/wb v2img/generation of private key.png" class="rounded img-fluid">
+                <br/>
+                <img src="static/img/wb v2img/generation of private key.png" class="rounded img-fluid" style="display: block; margin: 0 auto;">
                 <br/>
                 
                 <br/>
@@ -270,7 +271,7 @@
                 <li>Selected node pool operators can be removed through voting among operators.</li>
                 <br/>
                 <p>PoA-NP of NEBTC Network delivers comparatively fast transactions.</p>   
-                <img src="static/img/wb v2img/vanity data.png" class ="rounded img-fluid">
+                <img src="static/img/wb v2img/vanity data.png" class ="rounded img-fluid" style="display: block; margin: 0 auto;">
               
                  
                 <br/>
@@ -302,7 +303,7 @@
                 <p>Authority nodes receive additional rewards in return for a service, such as verifying transactions, broadcasting transactions, storing a copy of the blockchain, and so on.</p>
                 <p>Airdrop & NFT Registration Procedures</p>
                 <br/>
-                <img src="static/img/wb v2img/airdrop and NFT.png" class ="rounded img-fluid">
+                <img src="static/img/wb v2img/airdrop and NFT.png" class ="rounded img-fluid"style="display: block; margin: 0 auto;">
                 <br/>
                 <br/>
 
@@ -382,7 +383,7 @@
                 <br/>
                 <p><strong>※How to calculate node pool reward</strong></p>
                 <br/>
-                <p>$$ Rm=(MNx/Nx) *0.27Pt <br/> or Rm = \frac{MNx*0.27pt}{Nx} $$ </p>
+                <center><p> Rm=\frac{MNx}{Nx}*0.27Pt <br/> or Rm = \frac{MNx*0.27pt}{Nx} </p></center>
                 <li>Rm: My node pool reward</li>
                 <li>Nx: Total number of x-nodes in super nodes</li>
                 <li>MNx: Total number of x-nodes in my node pool</li>
@@ -413,8 +414,8 @@
                   <li>Works at -20℃ to 60℃- the existing method only works at 5℃ to 35℃</li>
                   <li>Fast processing less than a second</li>
                   <li>Each person can use 8 fingers for authentication (3 patterns per finger, total 24 patterns can be used)</li>
-                  <img src ="static/img/wb v2img/table1.png" class="rounded img-fluid">
-                  <p>$$ Table 1. The Process of Feature Extraction $$</p>
+                  <img src ="static/img/wb v2img/table1.png" class="rounded img-fluid"style="display: block; margin: 0 auto;">
+                  <center><p> Table 1. The Process of Feature Extraction </p></center>
                   <br/>
                   <h6>8.1 Image Capture</h6>
                   <p>Due to the property of the hemoglobin having a lower absorbance to the NIR wavelengths than the visible ones, the camera can capture an image containing the finger veins.</p>
@@ -424,17 +425,19 @@
                   <br/>
                   <p>• Gray Conversion</p>
                   <p>A new formula was developed to capture clearer vein patterns by changing the proportion of red, green and blue.A new formula was developed to capture clearer vein patterns by changing the proportion of red, green and blue.</p>
-                  <img src="static/img/wb v2img/gray conversion.gif" class="rounded img-fluid">
-                  <p>Inversion</p>
+                  <br/>
+                  <img src="static/img/wb v2img/gray conversion.gif" class="rounded img-fluid"style="display: block; margin: 0 auto;">
+                  <br/>
+                  <p>•Inversion</p>
                   <p>The image is inversed to reduce memory usage and shorten processing time.</p>
-                  <img src="static/img/wb v2img/table2.png" class="rounded img-fluid">
-                  <p>$$ Table 2. (A) Original Image (B) Gray Scale Conversion (C) Image Inversion $$</p>
+                  <img src="static/img/wb v2img/table2.png" class="rounded img-fluid"style="display: block; margin: 0 auto;">
+                 <center><p> Table 2. (A) Original Image (B) Gray Scale Conversion (C) Image Inversion </p></center>
                   <br/>
                   <h6>8.3 SWA (Shifted Waveform Analysis) Algorithm</h6>
                   <p>In order to extract clear vein patterns from the captured image, SWA (Shifted Waveform Analysis) algorithm was developed and applied. SWA algorithm is a method of using the phase difference of certain X axis and Y axis. The original signal <img src="static/img/wb v2img/Xn.gif" class="rounded img-fluid"> is shifted by d to get <img src="static/img/wb v2img/Xdn.gif" class="rounded img-fluid"> . δn is obtained by calculating the difference between <img src="static/img/wb v2img/Xn.gif" class="rounded img-fluid"> and <img src="static/img/wb v2img/Xdn.gif" class="rounded img-fluid">  ( <img src="static/img/wb v2img/Sn.gif" class="rounded img-fluid">). </p>
                   <br/>
                   <table class="table">
-                    <thead><tr align="right"><th scope="col">δn</td><th scope="col">Meaning</td></tr></thead>
+                    <thead><tr align="center"><th scope="col">δn</td><th scope="col">Meaning</td></tr></thead>
                     <tbody>
                     <tr align="right"><td>0</td> <td>Intersection of <img src="static/img/wb v2img/Xn.gif" class="rounded img-fluid"> and <img src="static/img/wb v2img/Xdn.gif" class="rounded img-fluid"> </td></tr>
                     <tr align="right"><td>+</td> <td>The pixel of the applied location is bright</td></tr>
@@ -442,26 +445,26 @@
            
   
                   </tbody></table>
-                  <p>$$ Table 3. Meaning of the value δn $$</p>
+                  <center><p> Table 3. Meaning of the value δn </p></center> 
                   <br/>
-                  
+
                   <p>The vein pattern is darker than the other tissue in the captured image. So the location of veins can be detected by padding the positive numbers of Grayscale with zeros, and applying threshold to the value   after squaring the negative numbers of data. The advantages of the SWA algorithm are as follows; (i) the great performance to detect a small variation of a fiducial point under uneven illumination condition, (ii) the ability to detect a fiducial point in various bandwidth, (iii) and relatively fast calculation.</p>
                   <br/>
                   <p>The dotted line in Figure 1 represents the SWA signal, and the solid line represents the original signal X(n). SWA signal maintains the original signal in the increasing section, while SWA signal keeps the peak from p to d at the peak point value where the slope of the signal is zero. After then, SWA signal repeats the declining process until it becomes the same as or smaller than the original signal, from d to x. At this time, two types of features are extracted as shown in Figure 2.</p>
                   <br/>
                   <p>Figure 3 is in regard to the fiducial point of finger joints, and Figure 4 shows the direction in which SWA algorithm applies. To extract finger joints, SWA algorithm is performed only once as shown in Figure 3. To extract features, SWA algorithm is performed Yn times on the Y axis shown in Figure 4-(A) and Xn times on the X axis shown in Figure 4-(B).</p>
-                  <img src="static/img/wb v2img/figure 1.png" class="rounded img-fluid">
-                  <p>$$ Figure 1. SWA Algorithm Example $$</p>
+                  <img src="static/img/wb v2img/figure 1.png" class="rounded img-fluid"style="display: block; margin: 0 auto;">
+                  <center><p> Figure 1. SWA Algorithm Example </p></center>
                   <br/>
-                  <img src="static/img/wb v2img/figure2.png" class="rounded img-fluid">
-                  <p>$$Figure 2. Two types of a peak point extracted from SWA and the original signal$$</p>
+                  <img src="static/img/wb v2img/figure2.png" class="rounded img-fluid"style="display: block; margin: 0 auto;">
+                  <center><p>Figure 2. Two types of a peak point extracted from SWA and the original signal</p></center>
                   <br/>
-                  <img src="static/img/wb v2img/figure3.png" class="rounded img-fluid">
-                  <p>$$ Figure 3. Fiducial point for the detection of finger joints $$</p>
+                  <img src="static/img/wb v2img/figure3.png" class="rounded img-fluid"style="display: block; margin: 0 auto;">
+                  <center><p> Figure 3. Fiducial point for the detection of finger joints </p></center>
                   <br/>
-                  <img src="static/img/wb v2img/figure4.png" class="rounded img-fluid">
-                  <p>$$ (A)                           (B)</p>
-                  <p>$$ Figure 4. Directions in which SWA algorithm applies $$ </p>
+                  <img src="static/img/wb v2img/figure4.png" class="rounded img-fluid"style="display: block; margin: 0 auto;">
+                  <center><p>(A)                           (B)</p></center>
+                  <center><p> Figure 4. Directions in which SWA algorithm applies </p></center>
                   <br/>
                 
 
@@ -473,7 +476,7 @@
                   <p>To obtain the values required for the next process, calculation of the difference between the original and the SWA is performed, as many times as in 4.3.</p>
                   <br/>
                   <img src="static/img/wb v2img/figure 5.png" class="rounded img-fluid">
-                  <p> $$ Figure 5. Feature of Peak Point shown on the difference of two signals $$</p>
+                  <center><p>Figure 5. Feature of Peak Point shown on the difference of two signals </p></center>
                   <br/>
 
                   <h6>8.6 Feature Detection Method</h6>
@@ -531,7 +534,7 @@
           </div>
         </div>
 
-        <h6><strong>Finger Vein D.Volt Wallet</strong></h6>
+        <h6><strong>     Finger Vein D.Volt Wallet</strong></h6>
         <div class="row">
             <div class="col">
               <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
