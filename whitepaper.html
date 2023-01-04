@@ -106,6 +106,7 @@
                 <h4>1. Introduction</h4>
                 <p>Blockchain technology has made significant strides in its development, which enables us to get closer to a decentralized, trustless Internet, transparency of transactions, and more. The possibilities of blockchain technology are truly endless. One of the most relevant use cases for blockchain is cryptocurrencies. </p>
                 <p>A cryptocurrency is a tradable digital asset, built on blockchain technology that only exists online. Cryptocurrencies are a new and exciting way to conduct transactions although their price volatility makes them difficult to use for everyday transactions. An increasing number of people are realizing the benefits of crypto assets and their promising future.</p>
+                <br/>
                 <p>From DeFi (Decentralized Finance) to NFTs (Non-Fungible Tokens) to DAOs (Decentralized Autonomous Organizations), blockchains open up a variety of opportunities. Especially, NFTs are believed to be the cornerstone of next generation digital infrastructure and the future of blockchain technologies. </p>
                 <p>Many expect digital assets will be a solid alternative to fiat currencies for global finance. </p>
                 <p>However, there are a few problems with cryptocurrencies that need to be addressed. Cryptocurrencies are highly susceptible to cyberattacks, and hackers have been known to steal large sums of money from users.</p>
@@ -215,132 +216,46 @@
                 <br/>
                 <br/>
 
-                <h6>4.1 Image Capture</h6>
-                <p>Due to the property of the hemoglobin having a lower absorbance to the NIR wavelengths than the visible ones, the camera can capture an image containing the finger veins.</p>
-                <br/>
-
-                <h6>4.2 Image Inversion</h6>
-                <p>In order to capture clearer vein patterns, the captured image is converted into gray by using Gray Conversion method and then inversed, which enables to reduce memory usage and shorten processing time.</p>
-                <br/>
-                <li>Gray Conversion</li>
-                <p>A new formula was developed to capture clearer vein patterns by changing the proportion of red, green and blue. The formula is as follows.</p>
-                <p>$$ Img=(Img[0]*R_S)+(Img[1]*R_G)+(Img[2]*R_R) $$</p>
-                <p>$$ 1=R_S+R_G+R_R, 0&lt;Img&lt;255 $$ </p>
-                <br/>
-                <li>Inversion</li>
-                <p>The image is inversed to reduce memory usage and shorten processing time.</p>
-                <div>
-                  <img src="static/img/05.png" class="rounded img-fluid ">
-                </div>
-                <p>Table 2. Original Image, Grayscale Conversion, and Image Inversion</p>
-                <br/>
-
-                <h6>4.3 SWA (Shifted Waveform Analysis) Algorithm</h6>
-                <p>In order to extract clear vein patterns from the captured image, SWA (Shifted Waveform Analysis) algorithm was developed and applied. SWA algorithm is a method of using the phase difference of certain X axis and Y axis. The original signal $$ X[n] $$ is shifted by d to get  $$ X_d[n] $$ . δn is obtained by calculating the difference between $$ X[n] $$ and $$ X_d[n]( \delta_n=X[n]-X_d[n] ) $$.</p>
-                <br/>
-                <table class="table table-striped">
-                  <thead>
-                    <tr align="right"><th scope="col">δn</th><th scope="col">Meaning</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr align="right"><td>0</td><td>Intersection of  $$  X[n] $$ and  $$  X_d[n]=2 $$</td></tr>
-                    <tr align="right"><td>+</td><td>The pixel of the applied location is bright</td></tr>
-                    <tr align="right"><td>-</td><td>The pixel of the applied location is dark</td></tr>
-                  </tbody></table><figcaption>Table 3. Meaning of the value δn</figcaption>
-                <br/>  
-                <p>The vein pattern is darker than the other tissue in the captured image. So the location of veins can be detected by padding the positive numbers of Grayscale with zeros, and applying threshold to the value after squaring the negative numbers of data. The advantages of the SWA algorithm are as follows; (i) the great performance to detect a small variation of a fiducial point under uneven illumination condition, (ii) the ability to detect a fiducial point in various bandwidth, (iii) and relatively fast calculation.
-                The dotted line in Figure 1 represents the SWA signal, and the solid line represents the original signal $$ X(n) $$. SWA signal maintains the original signal in the increasing section, while SWA signal keeps the peak from p to d at the peak point value where the slope of the signal is zero. After then, SWA signal repeats the declining process until it becomes the same as or smaller than the original signal, from d to x. At this time, two types of features are extracted as shown in Figure 2.
-                Figure 3 is in regard to the fiducial point of finger joints, and Figure 4 shows the direction in which SWA algorithm applies. To extract finger joints, SWA algorithm is performed only once as shown in Figure 3. To extract features, SWA algorithm is performed Yn times on the Y axis shown in Figure 4-(A) and Xn times on the X axis shown in Figure 4-(B).</p>
-                <br/>
-                <img src="static/img/09.png" class="rounded img-fluid ">
-                <p>Figure 1. SWA Algorithm Example</p>
-                <br/>
-                <img src="static/img/11.png" class="rounded img-fluid ">
-                <p>Figure 2. Two types of a peak point extracted from SWA amd the original signal</p>
-                <br/>
-                <img src="static/img/13.png" class="rounded img-fluid ">
-                <p>Figure 3. Fiducial point for the detection of finger points</p>
-                <br/>
-                <img src="static/img/15.png" class="rounded img-fluid ">
-                <p>Figure 4. Directions in which SWA algorithm applies</p>
-                <br/>
-
-                <h6>4.4 Finger Joints Detection Algorithm</h6>
-                <p>Every finger (except a thumb) has two finger joints. The location of two finger joints can be detected by image processing. It works as follows: (i) obtain SWA signal by applying SWA algorithm to the inverted image  by applying SWA algorithm to  $$ (X_0, Y_c) (X_1, Y_c) … (X_n, Y_c) $$  on Yc axis in Figure 3. (ii) calculate the location of high values as shown in Figure 2. (iii) perform repeatedly both on the left side and the right side of Xc fiducial point.</p>
-                <br/>
-
-                <h6>4.5 Difference Between the Original and SWA</h6>
-                <p>To obtain the values required for the next process, calculation of the difference between the original and the SWA is performed, as many times as in 4.3.</p>
-                <br/>
-
-                <h6>4.6 Feature Detection Method</h6>
-                <p>The threshold with values calculated in 4.5 is set and the value of the pixel at the peak point is converted into zero(white). Converted value reconstructs the image using X axis vector and Y axis vector with black backgrounds. At this time, features of vein patterns can be extracted by the synthesized vector of X axis vector and Y axis vector.</p>
-                <img src="static/img/07.png" class="rounded img-fluid ">
-                <p>Figure 5. Feature of peak point shown on th difference of twp signals</p>
-                <br/>
-
-                <h6>4.7 Generate Biokey</h6>
-                <p>After inverting the pixel value to brighten the vein patterns, SWA algorithm is applied and the difference between the original image and SWA result value is calculated. The image is reconstructed with the features of vein patterns which is extracted by applying Feature Extraction Algorithm and removing background and noise. The extracted image is converted into data, which is encrypted to generate 2kb Biokey. Biokey is composed of a public key and a private key.</p>
-                <br/>
-
-              </div>
-            </div>
-
             <div class="box-item">
               <div class="text">
-                <h4>5. D.Volt Wallet</h4>
-                <p>Seoul-based eTunnel, Inc., has manufactured a crypto wallet, called D.Volt. The D.Volt has adopted a FINGER VEIN AUTHENTICATION method in order to provide a more advanced decentralized crypto wallet that is free of hacks or loss.</p>
+                <h4>5.D.Volt DAO</h4>
                 <br/>
-
-                <h6>5.1 Finger Vein is a Private Key</h6>
-                <p>With D.Volt Wallet, there is no need to use Mnemonic Phrase, PIN number or fingerprint. User’s finger vein acts as a private key, which has little risk of loss, forgery, theft, duplication or hacking. When transferring cryptocurrencies to others, users use their finger vein instead of PIN number or fingerprints.</p>
+                <p>D.Volt DAO is a Web 3.0 platform. D.Volt is an integrated solution wallet that supports almost all different types of cryptocurrencies including NFT tokens. Unlike other crypto wallets on the market, D.Volt platform has D.Volt crypto wallet, NFT marketplace, DeFi, Metaverse, and payment gateway. In the NFT marketplace, users can store and retrieve different kinds of NFT tokens. DeFi platform enables users to exchange one cryptocurrency they hold for the equivalent value of another cryptocurrency (swap), and to use DeFi services where users can lend out their cryptocurrency or receive a loan. Payment gateway enables users not only to pay for goods and services with their cryptos in the wallet but also withdraw cash from ATM. </p>
                 <br/>
-
-                <h6>5.2 How to Create Private Keys</h6>
-                <p>Private keys are created and managed by user’s finger vein. Since hemoglobin in the blood absorbs near-infrared lights, vein patterns appear as a series of dark lines. The finger vein reader captures an image of the finger vein patterns. The captured image is then converted into data. The data are encrypted and stored as a Biokey, which is double encrypted to create private keys (how to create private keys with Biokeys cannot be specified). Public keys are generated from the private keys. The public keys are stored in the wallet, but the private keys are not, for a security reason.</p>
-                <br/>
-
-                <h6>5.3 How to Sign a Transaction</h6>
-                <p>The user can recover the private key with their finger vein at the time he needs to sign a transaction. The user puts his finger vein on the finger vein device and creates a new Biokey. The newly made Biokey is compared against the stored Biokey. If both are identical, then it instantly generates the private key to sign a transaction. The private key disappears right after signing a transaction. Private keys are not stored anywhere. Users use their finger vein instead of private keys when signing transactions. Users do not need to use PIN number or fingerprints.</p>
-                <p>Generation of Biokey and Private Key</p>
-                <img src="static/img/22.png" class="rounded img-fluid ">
-                <br/>
-                <br/>
-                <h6>5.4 Features of D.Volt Wallet</h6>
-                <p>D.Volt is an integrated solution wallet that supports almost all different types of cryptocurrencies including NFT tokens. Unlike other crypto wallets on the market, D.Volt has the NFT marketplace and the DeFi platforms. It allows users to store and retrieve NFT tokens and their other digital assets, to exchange one cryptocurrency they hold for the equivalent value of another cryptocurrency (swap), and to use DeFi services where users can lend out their cryptocurrency or receive a loan. Metaverse and Crypto Payment Gateway will be added to it in the near future.</p>
                 <p>D.Volt provides outstanding features as follows:</p>
-                  <li>Deposit</li>
-                  <li>Withdrawal</li>
-                  <li>Swap</li>
-                  <li>NFT Marketplace</li>
-                  <li>DeFi (Lending/Borrowing)</li>
-                  <li>Metaverse</li>
-                  <li>Payment Gateway</li>
                 <br/>
-
-              </div>  
-            </div>  
+                <li>Deposit</li>
+                <li>Withdrawal</li>
+                <li>Swap</li>
+                <li>NFT Marketplace</li>
+                <Li>DeFi (Lending/Borrowing)</Li>
+                <li>Metaverse</li>
+                <li>Payment Gateway</li>
+                <br/>             
 
             <div class="box-item">
               <div class="text">
                 <h4>6. NEBTC Network</h4>
-                <p>NEBTC Network, designed to be automated and decentralized, runs on a blockchain protocol fully and autonomously in accordance with rules encoded via smart contracts (DAO Governance). D.Volt wallet is operated on NEBTC Network, which is the decentralized ledger used to maintain NEBTC coins.</p>
+                <p>NEBTC Network, designed to be automated and decentralized, runs on a blockchain protocol fully and autonomously in accordance with rules encoded via smart contracts (DAO Governance). D.Volt platform is operated on NEBTC Network, which is governed by DAO (Decentralized Autonomous Organization).</p>
                 <br/>
 
-                <h6>6.1 DAO Governance (Decentralized Autonomous Organization)</h6>
-                <p>A DAO, a decentralized autonomous organization, is a software-enabled organization built and governed by smart contracts on a blockchain network. A smart contract is a set of rules written in computer code on a blockchain network that enables a network of computers to communicate and execute pre-programmed transactions once certain conditions are met. A DAO does not have a CEO or a board. It is owned by the members (nodes) and make decisions based on proposals that nodes vote on.
-                  A DAO has received much attention because it offers many advantages such as transparency, no corruption or owner risk, equitable distribution of earnings, etc.</p>
+                <h6>6.1 DAO Governance</h6>
+                <p>A DAO, a decentralized autonomous organization, is a software-enabled organization built and governed by smart contracts on a blockchain network. A smart contract is a set of rules written in computer code on a blockchain network that enables a network of computers to communicate and execute pre-programmed transactions once certain conditions are met. A DAO does not have a CEO or a board. It is owned by the members (nodes) and make decisions based on proposals that nodes vote on. </p>
+                <p>A DAO has received much attention because it offers many advantages such as transparency, no corruption or owner risk, equitable distribution of earnings, etc.</p>
                 <br/>
 
                 <h6>6.2 Consensus Algorithm; PoA-NP (Proof of Authority-Node Pool)</h6>
-                <p>NEBTC Network uses Proof of Authority-Node Pool (PoA-NP). PoA-NP is a community-based consensus algorithm that introduces a practical and efficient solution for blockchain networks.
-                A node pool is a community of nodes who own a Vein-X NFT which can be obtained by purchasing a Vein-X Finger Vein Authentication package designed to airdrop NEBTC coins. NEBTC coins airdropped is locked lifelong but used only to form an x node. Anyone who receives NEBTC airdrop deserves to run an x node. An x node is a fundamental unit that comprises a node pool. X node holders can delegate to node pools if they wish to participate in the protocol and receive rewards.
-                There are two ways an x node holder can earn rewards: by delegating their x node to a node pool run by someone else, or by running their own node pool.
-                The number of x nodes delegated to a certain node pool is the primary way the NEBTC Network protocol chooses who should add the next block to the blockchain and receive a monetary reward for doing so. The more x node is delegated to a node pool, the more likely it is to make the next block – and the rewards that it earns are shared between everyone who delegated their x node to that node pool.
-                Node pools are run by a reliable operator with the knowledge and resources to run the node on a constant basis.</p>
+                <p>NEBTC Network uses Proof of Authority-Node Pool (PoA-NP). PoA-NP is a community-based consensus algorithm that introduces a practical and efficient solution for blockchain networks.</p>
+                <br/>
+                <p>A node pool is a community of nodes who own a Vein-X NFT which can be obtained by purchasing a D.Volt package designed to airdrop NEBTC coins. NEBTC coins airdropped is locked lifelong but used only to form an x node. Anyone who receives NEBTC airdrop deserves to run an x node. An x node is a fundamental unit that comprises a node pool. X node holders can delegate to node pools if they wish to participate in the protocol and receive rewards.</p> 
+                <br/>
+                <p>There are two ways an x node holder can earn rewards: by delegating their x node to a node pool run by someone else, or by running their own node pool. </p>
+                <br/>
+                <p>The number of x nodes delegated to a certain node pool is the primary way the NEBTC Network protocol chooses who should add the next block to the blockchain and receive a monetary reward for doing so. The more x node is delegated to a node pool, the more likely it is to make the next block – and the rewards that it earns are shared between everyone who delegated their x node to that node pool. </p>
+                <br/>
+                <p>Node pools are run by a reliable operator with the knowledge and resources to run the node on a constant basis. </p>
                 <br/>
                 <p>In NEBTC Network, transactions and blocks are validated by selected node pool operators, called validators. Selected node pool operators run software allowing them to put transactions in blocks. The process is automated and does not require node pool operators to be constantly monitoring their computers. It, however, does require maintaining the computer uncompromised.</p>
-                <br/>
                 <li>Individuals qualified for an x node earn the right to become node pool operators.</li>
                 <li>New node pool operators acting as a validator can be selected in accordance with the size of the node pool they generate.</li>
                 <li>Selected node pool operators(validators) take turns signing and creating blocks at a set period.</li>
@@ -352,27 +267,27 @@
                 <br/>
                 <br/>  
                 <h6>6.3 A Major Role of a D.Volt package in NEBTC Network</h6>
-                <p>A D.Volt package is composed of a finger vein reader, a D.Volt wallet, and a smart watch. It has been developed for the purpose of setting up a node in the NEBTC Network. Each D.Volt package is NFTized and provides a Vein-X NFT as a certificate of authenticity. Each D.Volt package contains its own information such as its model name and the number of NEBTC airdrop coins given. Whoever wants to run a node should have a Vein-X NFT. Airdrop coins are used only to set up a node. Anyone with NEBTC airdrop coins is eligible to run an x node.</p>
+                <p>A D.Volt package is composed of a finger vein reader, a D.Volt wallet, and a smart watch. It has been developed for the purpose of setting up nodes in the NEBTC Network. Each D.Volt package is NFTized and provides a D.Volt NFT as a certificate of authenticity. Each D.Volt package contains its own information such as its model name and the number of NEBTC airdrop coins given. Whoever wants to run a node should have a D.Volt NFT. Airdrop coins are used only to set up a node. Anyone with NEBTC airdrop coins is eligible to run a node. </p>
                 <br/>
 
                 <h6>6.4 Nodes in NEBTC Network</h6>
                 <p>A blockchain consists of numerous blocks of data. These blocks of data are stored on nodes that can be compared to small servers. On a blockchain, all the nodes are connected to each other and they continuously exchange the newest information on the blockchain with each other. This ensures all nodes are updated.</p>
-                <p>In NEBTC Network, there are three kinds of nodes; x nodes, super nodes and authority nodes.
-                  An x node is a fundamental part of NEBTC Network blockchain network. Only x nodes are eligible to build a node pool, a community that is composed of not less than three x nodes.</p>
-                <p>The total number of x nodes in a node pool can serve as a criterion for selecting validators. According to the size of the node pool, super nodes and authority nodes are determined; Node pools from 1st to 5th are called authority nodes, and 6th to 10,000th super nodes.</p>  
-                <p>There is no limit to the number of node pools, but a total number of super nodes and authority nodes is set at 10,000 for the stability of the blockchain network. If needed, the number can be increased by voting in the future.</p>
+                <p>In NEBTC Network, there are three kinds of nodes; x-nodes, super nodes and authority nodes.</p>
+                <p>An x-node is a fundamental part of NEBTC Network blockchain network. Only x-nodes are eligible to build a node pool, a community that is composed of not less than three x-nodes. </p>
+                <p>There is no limit to the number of node pools, but a total number of super nodes and authority nodes is initially set at a minimum of 100 for the stability of the blockchain network. If needed, the number of super nodes can be increased (or decreased) by voting.</p>
+                <p>The total number of x-nodes in a node pool can serve as a criterion for selecting validators. According to the size of the node pool, super nodes and authority nodes are determined; Node pools from 1st to 5th are called authority nodes, and 6th to 100th super nodes. </p>
                 <br/>
 
-                <h6>6.41 X node</h6>
-                <p>X nodes receive rewards in return for a service, such as either participating in an existing node pool or newly building their own node pool. An x node should be in a node pool to receive x node rewards. </p>  
+                <h6>6.4.1 X-node</h6>
+                <p>X-nodes receive rewards in return for a service, such as either participating in an existing node pool or newly building their own node pool. An x-node should be in a node pool to receive x-node rewards.  </p>
                 <br/>
 
-                <h6>6.42 Super node</h6>
+                <h6>6.4.2 Super node</h6>
                 <p>Super nodes communicate with the blockchain while relying on authority nodes to provide them with the necessary information. They store a copy of the blockchain, and broadcast transactions for processing.</p>
                 <p>Super nodes receive additional rewards in return for a service, such as storing and communicating with the blockchain.</p>
                 <br/>
 
-                <h6>6.43 Authority Node</h6>
+                <h6>6.4.3 Authority Node</h6>
                 <p>Authority nodes act as a server in NEBTC Network. Their main tasks include maintaining the consensus between other nodes and verification of transactions. They also store a copy of the blockchain, thus being more secure and enable custom functions such as instant transfers and private transactions.</p>
                 <p>When making decisions for the future of a network, authority nodes are the ones that vote on proposals.</p>
                 <p>Authority nodes receive additional rewards in return for a service, such as verifying transactions, broadcasting transactions, storing a copy of the blockchain, and so on.</p>
@@ -397,17 +312,17 @@
               <div class="text">
                 <h4>7. Tokenomics</h4>
                 <ul>
-                <li>Name: NewBit</li>
                 <li>Ticker Symbol: NEBTC</li>
                 <li>Total Supply: 21,000,000</li>
-                <li>Airdrops for Nodes: 10,000,000 (Locked eternally, only used as the criteria for setting up a node)</li>
+                <li>Airdrops for Nodes: 10,000,000 <br/>(The airdrop coins for nodes will be locked eternally, only used as the criteria for setting up a node</li>
                 <li>Minting Rewards: 11,000,000 (Circulating Supply)</li>
                 </ul>
                 <p></p>
                 <br/>
 
                 <h6>7.1 Airdrops for Nodes</h6>
-                <p>Of 21,000,000 NEBTC, 10,000,000 NEBTC are airdropped to set up nodes. To run an x node, you should stake as many as NEBTC coins airdropped.</p>
+                <p>The ones who purchase D.Volt packages receive D.Volt NFT. Upon registration of NFT on NEBTC Blockchain Network, the holder will receive airdrops. </p>
+                <p>Of 10,000,000 NEBTC Airdrop, 4,000,000 NEBTC is airdropped for node set-up. To run a node, you should stake as many NEBTC coins as airdropped.</p>
                 <p>※ How to calculate the number of coins to stake when setting up a node</p>
                 <p>$$ If \frac{100*p}{2^{a-1}}\leq M \  Then\\ \qquad A=\frac{100}{2^{a-1}} $$</p>
                 <p>$$ Else\\ \qquad A=\frac{M}{P} $$</p>
@@ -420,82 +335,47 @@
                   <tr align="right"><td>X2</td> <td>20,000</td>   <td>50</td>       <td>A≤50</td></tr>
                   <tr align="right"><td>X3</td> <td>40,000</td>   <td>25</td>       <td>A≤25</td></tr>
                   <tr align="right"><td>X4</td> <td>80,000</td>   <td>12.5</td>     <td>A≤12.5</td></tr>
-                  <tr align="right"><td>X5</td> <td>160,000</td>  <td>6.25</td>     <td>A≤6.25</td></tr>
-                  <tr align="right"><td>X6</td> <td>320,000</td>  <td>3.125</td>    <td>A≤3.125</td></tr>
-                  <tr align="right"><td>X7</td> <td>640,000</td>  <td>1.5625</td>   <td>A≤1.5625</td></tr>
-                  <tr align="right"><td>X8</td> <td>1,280,000</td><td>0.78125</td>  <td>A≤0.78125</td></tr>
-                  <tr align="right"><td>X9</td> <td>2,560,000</td><td>0.390625</td> <td>A≤0.390625</td></tr>
-                  <tr align="right"><td>X10</td><td>5,120,000</td><td>0.1953125</td><td>A≤0.193125</td></tr>
+
                 </tbody></table>
 
-                <li>The holder of X1 package will be provided with an airdrop of 100 NEBTC. X1 holders do not need to stake any additional NEBTC coins to run a node. 10,000 packages for X1 series are available.</li>
-                <li>The holder of X2 package will be provided with an airdrop of 50 NEBTC. X2 holders need to stake additional 50 NEBTC (or less) coins to run a node. 20,000 packages for X2 series are available.</li>
-                <li>The holder of X3 package will be provided with an airdrop of 25 NEBTC. X3 holders need to stake additional 25 NEBTC (or less) coins to run a node. 40,000 packages for X3 series are available.</li>
-                <li>The holder of X4 package will be provided with an airdrop of 12.5 NEBTC. X4 holders need to stake additional 12.5 NEBTC (or less) coins to run a node. 80,000 packages for X4 series are available.</li>
-                <li>The holder of X5 package will be provided with an airdrop of 6.25 NEBTC. X5 holders need to stake additional 6.25 NEBTC (or less) coins to run a node. 160,000 packages for X5 series are available.</li>
-                <li>The holder of X6 package will be provided with an airdrop of 3.125 NEBTC. X6 holders need to stake additional 3.125 NEBTC (or less) coins to run a node. 320,000 packages for X6 series are available.</li>
-                <li>The holder of X7 package will be provided with an airdrop of 1.5625 NEBTC. X7 holders need to stake additional 1.5625 NEBTC (or less) coins to run a node. 640,000 packages for X7 series are available.</li>
-                <li>The holder of X8 package will be provided with an airdrop of 0.78125 NEBTC. X8 holders need to stake additional 0.78125 NEBTC (or less) coins to run a node. 1,280,000 packages for X8 series are available.</li>
-                <li>The holder of X9 package will be provided with an airdrop of 0.390625 NEBTC. X9 holders need to stake additional 0.390625 NEBTC (or less) coins to run a node. 2,560,000 packages for X9 series are available.</li>
-                <li>The holder of X10 package will be provided with an airdrop of 0.1953125 NEBTC. X10 holders need to stake additional 0.1953125 NEBTC (or less) coins to run a node. 5,120,000 packages for X10 series are available.</li>
-                <br/>
-
+                <li>X1 contains 100 NEBTC airdrop. X1 holders do not need to stake any additional NEBTC coins to run a node. 10,000 packages for X1 series are available.</li>
+                <li>X2 contains 50 NEBTC airdrop. X2 holders need to stake additional 50 NEBTC (or less) coins to run a node. 20,000 packages for X2 series are available.</li>
+                <li>X3 contains 25 NEBTC airdrop. X3 holders need to stake additional 25 NEBTC (or less) coins to run a node. 40,000 packages for X3 series are available.</li>
+                <li>X4 contains 12.5 NEBTC airdrop. X4 holders need to stake additional 12.5 NEBTC (or less) coins to run a node. 80,000 packages for X4 series are available.</li>
+   
                 <h6>7.2 Rewards for Nodes</h6>
                 <p>There are two types of node rewards;</p>
                 <li>Minting rewards</li>
                 <li>D.Volt rewards</li>
                 <br/>
 
-                <h6>7.21 Minting Rewards</h6>
-                <p>Of 21,000,000 NEBTC, 11,000,000 NEBTC are distributed as rewards to ‘x nodes’ autonomously in accordance with rules encoded via smart contracts. To receive minting rewards, every x node should make a choice of either participating in an existing node pool or building his own node pool. Only x nodes who are in a node pool are qualified for minting rewards.
-                  Minting rewards are programmed to be offered to x nodes at a certain rate, in accordance with the amount of the sales of a D.Volt package. As the sales increase, the number of nodes may increase accordingly. A maximum of 1,500 to 1,000 NEBTC can be given out a day – which can be changed by voting.</p>
-                <br/>
-                <p><strong>Minting Rewards Distribution Rules</strong></p>
-                <p>Each X Node receives minting rewards up to a maximum of 2000 times.</p>
-                
-                <table class="table table-striped">
-                  <thead>
-                    <tr align="right"><th scope="col">Series</th><th scope="col">When to reward</th><th scope="col">Rewards</th><th>Total rewards</th><th scope="col">To Whom</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr align="right"><td>X1</td><td>Every 10 sales</td><td>1500</td><td>1,500,000</td><td>X1</td></tr>
-                    <tr align="right"><td>X2</td><td>Every 20 sales</td><td>1300</td><td>1,300,000</td><td>X1, X2</td></tr>
-                    <tr align="right"><td>X3</td><td>Every 40 sales</td><td>1200</td><td>1,200,000</td><td>X1, X2, X3</td></tr>
-                    <tr align="right"><td>X4</td><td>Every 80 sales</td><td>1000</td><td>1,000,000</td><td>X2, X3, X4</td></tr>
-                    <tr align="right"><td>X5</td><td>Every 160 sales</td><td>1000</td><td>1,000,000</td><td>X3, X4, X5</td></tr>
-                    <tr align="right"><td>X6</td><td>Every 320 sales</td><td>1000</td><td>1,000,000</td><td>X4, X5, X6</td></tr>
-                    <tr align="right"><td>X7</td><td>Every 640 sales</td><td>1000</td><td>1,000,000</td><td>X5, X6, X7</td></tr>
-                    <tr align="right"><td>X8</td><td>Every 1,280 sales</td><td>1000</td><td>1,000,000</td><td>X6, X7, X8</td></tr>
-                    <tr align="right"><td>X9</td><td>Every 2,560 sales</td><td>1000</td><td>1,000,000</td><td>X7, X8, X9</td></tr>
-                    <tr align="right"><td>X10</td><td>Every 5,120 sales</td><td>1000</td><td>1,000,000</td><td>X8, X9, X10</td></tr>
-                  </tbody></table>
-                
-                <p>For every 10 X1 package sold, 1,500 NEBTC are distributed as rewards equally to x nodes who have X1 NFT.</p>
-                <p>For every 20 X2 package sold, 1,300 NEBTC are distributed as rewards equally to x nodes who have X1 and X2 NFT.</p>
-                <p>For every 40 X3 package sold, 1,200 NEBTC are distributed as rewards equally to x nodes who have X1, X2 and X3 NFT.</p>
-                <p>For every 80 X4 package sold, 1,000 NEBTC are distributed as rewards equally to x nodes who have X2, X3 and X4 NFT.</p>
-                <p>For every 160 X5 package sold, 1,000 NEBTC are distributed as rewards equally to x nodes who have X3, X4 and X5 NFT.</p>
-                <p>For every 320 X6 package sold, 1,000 NEBTC are distributed as rewards equally to x nodes who have X4, X5 and X6 NFT.</p>
-                <p>For every 640 X7 package sold, 1,000 NEBTC are distributed as rewards equally to x nodes who have X5, X6 and X7 NFT.</p>
-                <p>For every 1280 X8 package sold, 1,000 NEBTC are distributed as rewards equally to x nodes who have X6, X7 and X8 NFT.</p>
-                <p>For every 2560 X9 package sold, 1,000 NEBTC are distributed as rewards equally to x nodes who have X7, X8 and X9 NFT.</p>
-                <p>For every 5120 X10 package sold, 1,000 NEBTC are distributed as rewards equally to x nodes who have X8, X9 and X10 NFT.  </p>              
+                <h6>7.2.1 Minting Rewards</h6>
+                <p>A total of 11,000,000 NEBTC will be minted for rewards, 8,700,000 NEBTC will be distributed to the ones who run a node, 870,000 to the ones who publicize the D.Volt DAO, and the remainder (1,430,000) to the ones who participate in a D.Volt staking program or other promotional events.</p>
+                <p>Minting rewards are distributed autonomously in accordance with rules encoded via smart contracts. To receive minting rewards, every x-node should make a choice of either participating in an existing node pool or building his own node pool. Only x-nodes involved in a certain node pool are qualified for minting rewards. When participating in a node pool, NEBTC coins must be staked, which is not more than the number of NEBTC airdropped.</p>
+                <p>Minting rewards are programmed to be offered at a certain rate. As the staking for nodes increases, the demand for NEBTC is expected to increase accordingly. Daily minting amount is subject to change in accordance with the demand for NEBTC coins on the market. </p>
                 <br/>
 
-                <h6>7.22 D.Volt Rewards</h6>
-                <p>D.Volt rewards are to share profits generated in the D.Volt Wallet ecosystem. 75% of the profits are given out as D.Volt rewards to x nodes, while 25% are given out to super nodes and authority nodes in proportion to the number of x nodes in the node pool.</p>
+                <h6>7.2.2 D.Volt Rewards</h6>
+                <p>D.Volt rewards are to share profits generated in the D.Volt DAO (Web 3.0 platform).</p>
+                <p>70% of the profits are shared by all x-nodes, while 30% are given out to super nodes and authority nodes in proportion to the number of x-nodes in the node pool.</p>
+                <p>D.Vo*0.27pt\leq Nx\$$</p>
+                <br/>lt rewards are divided into:</p>
+                <li>70%: Node Reward (all x-nodes)</li>
+                <li>27%: Node-pool Reward (all super nodes and authority nodes)</li>
+                <li>3%: Donation</li>
                 <br/>
-                <p>※ Formula for calculating Vein-X rewards to X nodes</p>
-                <p>$$ T_p=\sum_{a=1}^{10}\frac{(a+2)*b}{100*T_p} $$</p>
-                <p>or</p>
-                <p>$$ 1=\sum_{a=1}^{10}\frac{(a+2)*b}{100} $$</p>
-                <p>or</p>
-                <p>$$ b=\sum_{a=1}^{10}\frac{100}{a+2} $$ </p>
-                <p>(However, a is applied to the formula only in case of Xan>0 to calculate b)</p>
-                <p>$$ X_Ra=\frac{T_p*((a+2)*b)}{X_an} $$</p>
-                <p>$$ where\quad T_p=Total\quad profits \\
-                  \qquad X_an:\quad Total\quad number\quad of\quad X\quad  nodes\quad  with\quad  X_a\quad series\quad  (a = 1, 2, 3, …, 10) \\
-                  \qquad X_Ra:\quad Vein-X\quad  rewards\quad for\quad X_a $$</p>
+                <p>Super nodes may want to enlarge the size of their node pool, so that they can get more rewards. </p>
+                <P>Donations are managed separately in the donation account. Super nodes can suggest ideas for how to spend the donations. Authority nodes should make a final decision in agreement before spending.</P>
+                <p>The flow of funds can be traced in Explorer and details will be posted on the Website.</p>
+                <br/>
+                <p><strong>※How to calculate node pool reward</strong></p>
+                <br/>
+                <p>Rm=(MNx/Nx) *0.27Pt </p>
+                <p>or Rm = $$\frac MNx
+                <li>Rm: My node pool reward</li>
+                <li>Nx: Total number of x-nodes in super nodes</li>
+                <li>MNx: Total number of x-nodes in my node pool</li>
+                <li>Pt: Total Profits from D.Volt DAO Platform</li>
                 <br/>  
                 
                 <p>Super nodes can increase the reputation by sharing rewards with the pool members or by donating part of them to society. Donations will be 100% returned at the time of the next rewards.</p>
