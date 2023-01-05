@@ -415,6 +415,8 @@
                   <li>Works at -20℃ to 60℃- the existing method only works at 5℃ to 35℃</li>
                   <li>Fast processing less than a second</li>
                   <li>Each person can use 8 fingers for authentication (3 patterns per finger, total 24 patterns can be used)</li>
+                  <br/>
+
                   <img src ="static/img/wb v2img/table1.png" class="rounded img-fluid"style="display: block; margin: 0 auto;">
                   <center><p>Table 1. The Process of Feature Extraction </p></center>
                   <br/>
@@ -438,7 +440,7 @@
                   <h6>8.3 SWA (Shifted Waveform Analysis) Algorithm</h6>
                   <p>In order to extract clear vein patterns from the captured image, SWA (Shifted Waveform Analysis) algorithm was developed and applied. SWA algorithm is a method of using the phase difference of certain X axis and Y axis. The original signal <img src="static/img/wb v2img/Xn.gif" class="rounded img-fluid"> is shifted by d to get <img src="static/img/wb v2img/Xdn.gif" class="rounded img-fluid"> . δn is obtained by calculating the difference between <img src="static/img/wb v2img/Xn.gif" class="rounded img-fluid"> and <img src="static/img/wb v2img/Xdn.gif" class="rounded img-fluid">  ( <img src="static/img/wb v2img/Sn.gif" class="rounded img-fluid">). </p>
                   <br/>
-                  <table>
+                  <center><table>
                     <thead>
                       <tr>
                         <th colspan="2">δn</th>
@@ -448,7 +450,7 @@
                     <tbody>
                       <tr>
                         <td colspan="2">0</td>
-                        <td colspan="5">Intersection of <img src="static/img/wb v2img/Xn.gif" class="rounded img-fluid"> and <img src="static/img/wb v2img/Xdn.gif" class="rounded img-fluid"</td>
+                        <td colspan="5">intersection of<img src="static/img/wb v2img/Xn.gif" class="rounded img-fluid"> and <img src="static/img/wb v2img/Xdn.gif" class="rounded img-fluid"></td>
                       </tr>
                       <tr>
                         <td colspan="2">+</td>
@@ -459,7 +461,31 @@
                         <td colspan="5">The pixel of the applied location is dark</td>
                       </tr>
                     </tbody>
-                    </table>          
+                    </table>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th colspan="2">δn</th>
+                          <th colspan="5">Meaning</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td colspan="2">0</td>
+                          <td colspan="5">intersection of</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">+</td>
+                          <td colspan="5"> 			The pixel of the applied location is bright 			</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">-</td>
+                          <td colspan="5">The pixel of the applied location is dark</td>
+                        </tr>
+                      </tbody>
+                      </table> </center> 
+
+                       
                 <center><p> Table 3. Meaning of the value δn </p></center>
                   <br/>
 
@@ -478,7 +504,7 @@
                   <center><p> Figure 3. Fiducial point for the detection of finger joints </p></center>
                   <br/>
                   <img src="static/img/wb v2img/figure4.png" class="rounded img-fluid"style="display: block; margin: 0 auto;">
-                  <center><p>(A)(B) </p></center>
+                  <center><p>(A)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(B) </p></center>
                   <center><p> Figure 4. Directions in which SWA algorithm applies </p></center>
                   <br/>
                 
@@ -549,7 +575,7 @@
           </div>
         </div>
 
-        <h6><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Finger Vein D.Volt Wallet</strong></h6>
+        <h6><strong>Finger Vein D.Volt Wallet</strong></h6>
         <div class="row">
             <div class="col">
               <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
