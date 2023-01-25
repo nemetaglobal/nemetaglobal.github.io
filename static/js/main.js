@@ -50,6 +50,22 @@
         itemsMobile : [479,1],
       });   
 
+      var owl = $("#teammates");
+      owl.owlCarousel({
+        navigation: false,
+        pagination: true,
+        slideSpeed: 1000,
+        stopOnHover: true,
+        autoPlay: true,
+        items: 2,
+        itemsDesktop : [1199,2],
+        itemsDesktopSmall : [980,2],
+        itemsTablet: [768,1],
+        itemsTablet: [767,1],
+        itemsTabletSmall: [480,1],
+        itemsMobile : [479,1],
+      });   
+
 /* 
    Touch Owl Carousel
    ========================================================================== */
