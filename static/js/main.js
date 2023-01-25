@@ -49,8 +49,9 @@
         itemsTabletSmall: [480,1],
         itemsMobile : [479,1],
       });   
+/*for our team sections's carousel*/
 
-      var owl = $("#teammates");
+      var owl = $("#teammates"); 
       owl.owlCarousel({
         navigation: false,
         pagination: true,
