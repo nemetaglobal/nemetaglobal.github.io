@@ -67,6 +67,12 @@
         itemsMobile : [479,1],
       });   
 
+      $(".teammates").owlCarousel({
+        // you can use jQuery selector
+        navText: [$('.am-next'),$('.am-prev')]
+     
+    });
+
 /* 
    Touch Owl Carousel
    ========================================================================== */

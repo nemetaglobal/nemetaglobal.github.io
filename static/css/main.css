@@ -2101,7 +2101,7 @@ textarea {
   19. Subscribe Style
   ========================================================================== */
 #subscribe {
-  background: url(../img/bg/subs.jpg);
+  /* background: url(../img/bg/subs.jpg); */
   position: relative;
 }
 
@@ -2405,4 +2405,12 @@ footer .menu li a:hover {
 .counter-item .fact-count h4 {
   font-size: 18px;
   margin-bottom: 0;
+}
+
+.introLeft{
+ border-right:4px solid rgba(0, 0, 0, 0.06);
+  margin-bottom:2%;
+}
+.introRight{
+  margin-bottom:2%;
 }
