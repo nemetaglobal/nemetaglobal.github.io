@@ -2473,3 +2473,14 @@ footer .menu li a:hover {
 
   margin-bottom:3%;
 } 
+@media screen and (max-width: 5000px) {
+  .imgLarge {display: block;}
+  .imgSmall {display:none;}
+  
+}
+
+@media screen and (max-width: 500px) {
+  .imgLarge {display: none;}
+  .imgSmall {display:block;}
+  
+}
