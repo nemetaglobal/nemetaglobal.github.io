@@ -2412,5 +2412,7 @@ footer .menu li a:hover {
   margin-bottom:2%;
 }
 .introRight{
-  margin-bottom:2%;
+  padding-bottom: 1%;
+  margin-bottom:1%;
+  border-bottom:2px solid rgba(0, 0, 0, 0.06);
 }
