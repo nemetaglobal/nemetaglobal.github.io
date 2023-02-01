@@ -71,6 +71,11 @@ ul li {
   list-style: none;
 }
 
+.introRight ul li {
+  list-style: disc;
+}
+
+
 a:hover,
 a:focus {
   text-decoration: none;
@@ -292,12 +297,35 @@ button:focus {
   background: #DD4D42;
 }
 
+.instagram a {
+  color:#fb3958;
+}
+
+.instagram a:hover {
+  color:#fb3958;
+}
+
+.pancakeswap a {
+  background: #c7b198; 
+}
+.pancakeswap a:hover {
+  background: #c7b198; 
+}
+
 .youtube a {
   color: #DF2926;
 }
 
 .youtube a:hover {
   background: #DF2926;
+}
+
+.medium a {
+  color: black;
+}
+
+.medium a:hover {
+  color: black;
 }
 
 .linkedin a {
@@ -1455,6 +1483,8 @@ button:focus {
   display: inline-block;
 }
 
+
+
 .single-team .social-list li a {
   display: block;
   height: 34px;
@@ -1485,8 +1515,24 @@ button:focus {
   color: #fff;
 }
 
+.single-team .social-list .instagram a:hover {
+  background: #fb3958;
+  color: #fff;
+}
+
+.single-team .social-list .pancakeswap a:hover {
+  background: #c7b198; 
+  color: #fff;
+}
+
+
 .single-team .social-list .linkedin a:hover {
   background: #007bb6;
+  color: #fff;
+}
+
+.single-team .social-list .medium a:hover {
+  background: black;
   color: #fff;
 }
 
@@ -2311,6 +2357,18 @@ footer .menu li a:hover {
   background-color: #dd4b39;
 }
 
+.footer-social li .instagram:hover {
+  background-color: #fb3958;
+}
+
+.footer-social li .pancakeswap:hover {
+  background-color: #c7b198; 
+}
+
+.footer-social li .medium:hover {
+  background-color: black;
+}
+
 #copyright {
   background-color: #ffffff;
   padding: 20px 0 10px;
@@ -2408,11 +2466,10 @@ footer .menu li a:hover {
 }
 
 .introLeft{
- border-right:4px solid rgba(0, 0, 0, 0.06);
-  margin-bottom:2%;
+ /* border-right:4px solid rgba(0, 0, 0, 0.06); */
+  margin-bottom:1%;
 }
 .introRight{
-  padding-bottom: 1%;
-  margin-bottom:1%;
-  border-bottom:2px solid rgba(0, 0, 0, 0.06);
-}
+
+  margin-bottom:3%;
+} 
