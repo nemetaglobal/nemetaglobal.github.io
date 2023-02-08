@@ -53,7 +53,7 @@
 
       var owl = $("#teammates"); 
       owl.owlCarousel({
-        navigation: false,
+        navigation: true,
         pagination: true,
         slideSpeed: 1000,
         stopOnHover: true,
