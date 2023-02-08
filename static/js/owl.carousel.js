@@ -24,7 +24,6 @@ if (typeof Object.create !== "function") {
     var Carousel = {
         init : function (options, el) {
             var base = this;
-console.log(base);
             base.$elem = $(el);
             base.options = $.extend({}, $.fn.owlCarousel.options, base.$elem.data(), options);
 
@@ -1473,7 +1472,7 @@ console.log(base);
         rewindNav : true,
         scrollPerPage : false,
 
-        pagination : false,
+        pagination : true,
         paginationNumbers : false,
 
         responsive : true,
